@@ -74,6 +74,7 @@ public class FoodList extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int item) {
                       if (item==0) {
                           // update
+
                         Cursor c = MainActivity.sqLiteHelper.getData("SELECT id FROM FOOD");
                           ArrayList<Integer> arrID = new ArrayList<Integer>();
                           while(c.moveToNext()){
@@ -103,6 +104,7 @@ public class FoodList extends AppCompatActivity {
         final EditText edtName = (EditText) dialog.findViewById(R.id.edtName);
         final EditText edtPrice = (EditText) dialog.findViewById(R.id.edtPrice);
         Button btnUpdate = (Button) dialog.findViewById(R.id.btnUpdate);
+
 
         //set width for dialog
         int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
@@ -148,6 +150,7 @@ public class FoodList extends AppCompatActivity {
 
     private void updateFoodList(){
         Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM FOOD");
+        int i;
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt (0);
